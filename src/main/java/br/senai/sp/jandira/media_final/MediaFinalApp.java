@@ -9,6 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.action.Action;
+
+import java.awt.event.ActionEvent;
 
 public class MediaFinalApp extends Application {
 
@@ -114,9 +117,35 @@ public class MediaFinalApp extends Application {
             double somaDasNotas = nota1 + nota2 + nota3 + nota4;
             double mediaFinal = somaDasNotas /4;
 
-            System.out.println(mediaFinal);
+            String mediaFinalStr = String.format("%.1f", mediaFinal);
+            labelMedia.setText("Média Final: " + mediaFinalStr);
 
+
+            //SITUAÇÃO DO ALUNO
+            if (mediaFinal >= 8){
+                String aprovado = "Aprovado";
+                labelSituacao.setText("Situação: " + aprovado);
+            } else if (mediaFinal >= 5) {
+                String recuperacao = "Recuperação";
+                labelSituacao.setText("Situação: " + recuperacao);
+            }else {
+                String reprovado = "Reprovado";
+                labelSituacao.setText("Situação: " + reprovado);
+            }
+        });
+
+        buttonLimpar.setOnAction( click ->{
+            textFieldNome.setText("");
+            textFieldNota1.setText("");
+            textFieldNota2.setText("");
+            textFieldNota3.setText("");
+            textFieldNota4.setText("");
+
+            labelAluno.setText("Nome do Aluno:");
+            labelMedia.setText("Média Final:");
+            labelSituacao.setText("Situação:");
 
         });
+
     }
 }

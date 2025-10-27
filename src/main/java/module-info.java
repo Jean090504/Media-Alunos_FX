@@ -10,6 +10,7 @@ module sp.jandira.media_final {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
     // "Abra" o seu pacote real para o JavaFX FXML
     opens br.senai.sp.jandira.media_final to javafx.fxml;
