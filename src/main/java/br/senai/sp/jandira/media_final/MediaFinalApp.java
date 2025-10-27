@@ -35,7 +35,7 @@ public class MediaFinalApp extends Application {
         Label labelTitulo = new Label();
         labelTitulo.setText("Escola \"Prof. Vicente Amato\"");
         //formatação do texto da label
-        labelTitulo.setStyle("-fx-text-fill: #FF2900; -fx-font-size: 32; -fx-font-weight: bold");
+        labelTitulo.setStyle("-fx-text-fill: #3300ff; -fx-font-size: 32; -fx-font-weight: bold");
         labelTitulo.setPadding(new Insets(10, 0, 10, 10));
 
 
@@ -101,50 +101,68 @@ public class MediaFinalApp extends Application {
             String nomeDigitado = textFieldNome.getText();
             labelAluno.setText("Nome do Aluno: " + nomeDigitado);
 
+            //Criar Vetor de Notas
+            double[] notas = new double[4];
+            String[] notasStr = new String[4];
+
             // Calcular Média
-            String nota1Str = textFieldNota1.getText();
-            double nota1 = Double.parseDouble(nota1Str);
+            notasStr[0] = textFieldNota1.getText();
+            notas[0] = Double.parseDouble(notasStr[0]);
 
-            String nota2Str = textFieldNota2.getText();
-            double nota2 = Double.parseDouble(nota2Str);
+            notasStr[1] = textFieldNota2.getText();
+            notas[1] = Double.parseDouble(notasStr[1]);
 
-            String nota3Str = textFieldNota3.getText();
-            double nota3 = Double.parseDouble(nota3Str);
+            notasStr[2] = textFieldNota3.getText();
+            notas[2] = Double.parseDouble(notasStr[2]);
 
-            String nota4Str = textFieldNota4.getText();
-            double nota4 = Double.parseDouble(nota4Str);
+            notasStr[3] = textFieldNota4.getText();
+            notas[3] = Double.parseDouble(notasStr[3]);
 
-            double somaDasNotas = nota1 + nota2 + nota3 + nota4;
-            double mediaFinal = somaDasNotas /4;
+            //Uso de Loop While
+            double somaDasNotas = 0.0;
+            int volta = 0;
+
+            while (volta < notas.length ){
+                somaDasNotas = somaDasNotas + notas[volta];
+                volta++;
+            }
+
+            double mediaFinal = somaDasNotas / notas.length;
 
             String mediaFinalStr = String.format("%.1f", mediaFinal);
             labelMedia.setText("Média Final: " + mediaFinalStr);
 
+            String situacao;
 
             //SITUAÇÃO DO ALUNO
-            if (mediaFinal >= 8){
-                String aprovado = "Aprovado";
-                labelSituacao.setText("Situação: " + aprovado);
-            } else if (mediaFinal >= 5) {
-                String recuperacao = "Recuperação";
-                labelSituacao.setText("Situação: " + recuperacao);
+            if (mediaFinal >= 6){
+                situacao = "Aprovado";
+                labelSituacao.setText("Situação: " + situacao);
+            } else if (mediaFinal <= 4) {
+                situacao = "Reprovado";
+                labelSituacao.setText("Situação: " + situacao);
             }else {
-                String reprovado = "Reprovado";
-                labelSituacao.setText("Situação: " + reprovado);
+                situacao = "Recuperação";
+                labelSituacao.setText("Situação: " + situacao);
             }
         });
 
         buttonLimpar.setOnAction( click ->{
+            // Limpa os campos de texto das notas e do nome
             textFieldNome.setText("");
             textFieldNota1.setText("");
             textFieldNota2.setText("");
             textFieldNota3.setText("");
             textFieldNota4.setText("");
 
+            // Limpa os labels de resultado no painel inferior
             labelAluno.setText("Nome do Aluno:");
             labelMedia.setText("Média Final:");
             labelSituacao.setText("Situação:");
+        });
 
+        buttonSair.setOnAction( click ->{
+            stage.close();
         });
 
     }
