@@ -1,4 +1,4 @@
-module com.example.media_fx {
+module sp.jandira.media_final {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -11,6 +11,9 @@ module com.example.media_fx {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens com.example.media_fx to javafx.fxml;
-    exports com.example.media_fx;
+    // "Abra" o seu pacote real para o JavaFX FXML
+    opens br.senai.sp.jandira.media_final to javafx.fxml;
+
+    // "Exporte" o seu pacote real
+    exports br.senai.sp.jandira.media_final;
 }

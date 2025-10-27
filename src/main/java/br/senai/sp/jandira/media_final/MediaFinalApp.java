@@ -10,7 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class MediaFX extends Application {
+public class MediaFinalApp extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -95,6 +95,28 @@ public class MediaFX extends Application {
         //eventos de click dos botoes
         buttonCalcularMedia.setOnAction( click -> {
             System.out.println("Botão Clicado");
+            String nomeDigitado = textFieldNome.getText();
+            labelAluno.setText("Nome do Aluno: " + nomeDigitado);
+
+            // Calcular Média
+            String nota1Str = textFieldNota1.getText();
+            double nota1 = Double.parseDouble(nota1Str);
+
+            String nota2Str = textFieldNota2.getText();
+            double nota2 = Double.parseDouble(nota2Str);
+
+            String nota3Str = textFieldNota3.getText();
+            double nota3 = Double.parseDouble(nota3Str);
+
+            String nota4Str = textFieldNota4.getText();
+            double nota4 = Double.parseDouble(nota4Str);
+
+            double somaDasNotas = nota1 + nota2 + nota3 + nota4;
+            double mediaFinal = somaDasNotas /4;
+
+            System.out.println(mediaFinal);
+
+
         });
     }
 }
