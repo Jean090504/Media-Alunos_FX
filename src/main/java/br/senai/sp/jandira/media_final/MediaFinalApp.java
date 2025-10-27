@@ -152,6 +152,8 @@ public class MediaFinalApp extends Application {
             textFieldNota3.setText("");
             textFieldNota4.setText("");
 
+            textFieldNome.requestFocus();
+
             // Limpa os labels de resultado no painel inferior
             labelAluno.setText("Nome do Aluno:");
             labelMedia.setText("Média Final:");
