@@ -9,9 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.controlsfx.control.action.Action;
-
-import java.awt.event.ActionEvent;
 
 public class MediaFinalApp extends Application {
 
@@ -120,11 +117,11 @@ public class MediaFinalApp extends Application {
 
             //Uso de Loop While
             double somaDasNotas = 0.0;
-            int volta = 0;
+            int i = 0;
 
-            while (volta < notas.length ){
-                somaDasNotas = somaDasNotas + notas[volta];
-                volta++;
+            while (i < notas.length ){
+                somaDasNotas = somaDasNotas + notas[i];
+                i++;
             }
 
             double mediaFinal = somaDasNotas / notas.length;
