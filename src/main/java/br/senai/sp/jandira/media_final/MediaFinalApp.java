@@ -120,7 +120,7 @@ public class MediaFinalApp extends Application {
             int i = 0;
 
             while (i < notas.length ){
-                somaDasNotas = somaDasNotas + notas[i];
+                somaDasNotas += notas[i];
                 i++;
             }
 
